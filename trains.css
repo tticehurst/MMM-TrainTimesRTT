@@ -6,17 +6,17 @@
 }
 
 .red {
-  color: red;
+  color: red !important;
 }
 
 .darkred {
-  color: darkred;
+  color: darkred !important;
 }
 .green{
-  color: green;
+  color: green !important;
 }
 .lightblue {
-  color: rgb(70, 169, 202);
+  color: rgb(70, 169, 202) !important;
 }
 
 td.train-destination{
@@ -39,5 +39,9 @@ table {
 }
 
 #trainslisting{
-  font-size: 75%;
+  font-size: 80%;
+}
+
+#trainslisting * {
+  color: rgb(177, 177, 177);
 }

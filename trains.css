@@ -13,7 +13,7 @@
   color: darkred !important;
 }
 .green{
-  color: green !important;
+  color: rgb(0,255,0) !important;
 }
 .lightblue {
   color: rgb(70, 169, 202) !important;
@@ -39,9 +39,9 @@ table {
 }
 
 #trainslisting{
-  font-size: 80%;
+  font-size: 84%;
 }
 
 #trainslisting * {
-  color: rgb(177, 177, 177);
+  color: rgb(201, 201, 201);
 }

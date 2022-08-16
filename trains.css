@@ -33,3 +33,11 @@ td.status{
   text-align: right;
   padding-left: 10px;
 }
+
+table {
+  border-spacing: 10px;
+}
+
+#trainslisting{
+  font-size: 75%;
+}

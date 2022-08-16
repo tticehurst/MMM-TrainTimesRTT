@@ -3,7 +3,8 @@ Module.register("TomTrains", {
     origin: "LDS",
     username: undefined,
     password: undefined,
-    amount: 5
+    amount: 5,
+    refreshTime: 5
   },
 
   __getData() {
@@ -34,7 +35,7 @@ Module.register("TomTrains", {
     setTimeout(() => {
       setInterval(() => {
         this.__getData();
-      }, 600000);
+      }, refreshTime * 60000);
       this.__getData();
     }, 1000);
   },

@@ -21,13 +21,14 @@
 
 ## Config
 
-| Option   | Description                                     | Example            |
-| -------- | ----------------------------------------------- | ------------------ |
-| origin   | The station to get departures and arrivals from | `origin: "lds"`    |
-| username | Your username for the RTT api                   | `username: "abcd"` |
-| password | Your password for the RTT api                   | `password: "abcd"` |
-| amount   | The amount of trains to display                 | `amount: "5"`      |
+| Option      | Description                                     | Example            |
+| ----------- | ----------------------------------------------- | ------------------ |
+| origin      | The station to get departures and arrivals from | `origin: "lds"`    |
+| username    | Your username for the RTT api                   | `username: "abcd"` |
+| password    | Your password for the RTT api                   | `password: "abcd"` |
+| amount      | The amount of trains to display                 | `amount: 5`        |
+| refreshTime | The minutes between each refresh                | `refreshTime: 5`   |
 
 ## Example
 
-![example image](https://i.imgur.com/IlyZEvT.png)
+![example image](https://i.imgur.com/YjcCy43.png)

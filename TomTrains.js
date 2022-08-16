@@ -35,7 +35,7 @@ Module.register("TomTrains", {
     setTimeout(() => {
       setInterval(() => {
         this.__getData();
-      }, refreshTime * 60000);
+      }, this.config.refreshTime * 60000);
       this.__getData();
     }, 1000);
   },

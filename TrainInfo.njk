@@ -23,7 +23,7 @@
 
               {% if currentTrain.locationDetail.cancelReasonCode %}
                 <td class="status">
-                  <span class="red">Cancelled</span>
+                  <span class="darkred">Cancelled</span>
                 </td>
               {% else %}
                 {% set trainStatus = currentTrain.locationDetail.gbttBookedArrival | compareTime(currentTrain.locationDetail.realtimeArrival) %}

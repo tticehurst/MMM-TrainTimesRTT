@@ -24,7 +24,7 @@ Module.register("TomTrains", {
 
     this.nunjucksEnvironment().addFilter("compareTime", (bookedTime, realTime) => {
       if (realTime > bookedTime) {
-        return { text: "Late", class: "darkred" }
+        return { text: "Late", class: "red" }
       } else if (realTime < bookedTime) {
         return { text: "Early", class: "lightblue" };
       } else {

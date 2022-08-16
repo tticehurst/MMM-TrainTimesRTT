@@ -1,0 +1,39 @@
+{% if data.error %}
+  <p>{{data.error.message}}</p>
+{% else %}
+  {% if data.trainData %}
+    <header class="module-header">{{data.trainData.location.name}}</header>
+
+    <table>
+      <tbody>
+        {% for i in range(0, config.amount) %}
+          {% set currentTrain = data
+            .trainData
+            .services[i] %}
+          <tr>
+            <td class="train-destination">{{currentTrain.locationDetail.destination[0].description}}</td>
+            {% if not currentTrain.locationDetail.cancelReasonCode %}
+              <td class="traintime">{{currentTrain.locationDetail.gbttBookedArrival | trainTime}}</td>
+              <td class="traintime">({{currentTrain.locationDetail.realtimeArrival | trainTime}})</td>
+            {% else %}
+              <td class="traintime">{{currentTrain.locationDetail.gbttBookedArrival | trainTime}}</td>
+              <td></td>
+            {% endif %}
+
+            {% if currentTrain.locationDetail.cancelReasonCode %}
+              <td class="status">
+                <span class="red">Cancelled</span>
+              </td>
+            {% else %}
+              {% set trainStatus = currentTrain.locationDetail.gbttBookedArrival | compareTime(currentTrain.locationDetail.realtimeArrival) %}
+
+              <td class="{{trainStatus.class}} status">
+                {{trainStatus.text}}
+              </td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endif %}

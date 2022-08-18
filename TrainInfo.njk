@@ -7,33 +7,44 @@
 
       <table>
         <tbody>
-          {% for i in range(0, config.amount) %}
-            {% set currentTrain = data
-              .trainData
-              .services[i] %}
-            <tr>
-              <td class="train-destination">{{currentTrain.locationDetail.destination[0].description}}</td>
-              {% if not currentTrain.locationDetail.cancelReasonCode %}
-                <td class="traintime">{{currentTrain.locationDetail.gbttBookedArrival | trainTime}}</td>
-                <td class="traintime">({{currentTrain.locationDetail.realtimeArrival | trainTime}})</td>
-              {% else %}
-                <td class="traintime">{{currentTrain.locationDetail.gbttBookedArrival | trainTime}}</td>
-                <td></td>
-              {% endif %}
+          {% if data.trainData.services %}
+            {% for i in range(0, config.amount) %}
+              {% set currentTrain = data
+                .trainData
+                .services[i] %}
 
-              {% if currentTrain.locationDetail.cancelReasonCode %}
-                <td class="status">
-                  <span class="darkred">Cancelled</span>
-                </td>
-              {% else %}
-                {% set trainStatus = currentTrain.locationDetail.gbttBookedArrival | compareTime(currentTrain.locationDetail.realtimeArrival) %}
+              {% if currentTrain.locationDetail %}
+                <tr>
+                  <td class="train-destination">{{currentTrain.locationDetail.destination[0].description}}</td>
+                  {% if not currentTrain.locationDetail.cancelReasonCode %}
+                    <td class="traintime">{{currentTrain.locationDetail.gbttBookedArrival | trainTime}}</td>
+                    <td class="traintime">({{currentTrain.locationDetail.realtimeArrival | trainTime}})</td>
+                  {% else %}
+                    <td class="traintime">{{currentTrain.locationDetail.gbttBookedArrival | trainTime}}</td>
+                    <td></td>
+                  {% endif %}
 
-                <td class="{{trainStatus.class}} status">
-                  {{trainStatus.text}}
-                </td>
+                  {% if currentTrain.locationDetail.cancelReasonCode %}
+                    <td class="status">
+                      <span class="darkred">Cancelled</span>
+                    </td>
+                  {% else %}
+                    {% set trainStatus = currentTrain.locationDetail.gbttBookedArrival | compareTime(currentTrain.locationDetail.realtimeArrival) %}
+
+                    <td class="{{trainStatus.class}} status">
+                      {{trainStatus.text}}
+                    </td>
+                  {% endif %}
+                </tr>
               {% endif %}
-            </tr>
-          {% endfor %}
+            {% endfor %}
+
+          {% else %}
+            <span>
+              No services found for
+              {{data.trainData.location.crs}}
+            </span>
+          {% endif %}
         </tbody>
       </table>
     </div>

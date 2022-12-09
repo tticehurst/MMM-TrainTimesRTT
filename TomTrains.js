@@ -4,14 +4,14 @@ Module.register("TomTrains", {
     username: undefined,
     password: undefined,
     amount: 5,
-    refreshTime: 5
+    refreshTime: 5,
   },
 
   __getData() {
     this.sendSocketNotification("GetTrains", {
       origin: this.config.origin,
       username: this.config.username,
-      password: this.config.password
+      password: this.config.password,
     });
   },
 
@@ -24,7 +24,7 @@ Module.register("TomTrains", {
 
     this.nunjucksEnvironment().addFilter("compareTime", (bookedTime, realTime) => {
       if (realTime > bookedTime) {
-        return { text: "Late", class: "red" }
+        return { text: "Late", class: "red" };
       } else if (realTime < bookedTime) {
         return { text: "Early", class: "lightblue" };
       } else {
@@ -51,12 +51,12 @@ Module.register("TomTrains", {
   getTemplateData() {
     return {
       data: this.payload,
-      config: this.config
-    }
+      config: this.config,
+    };
   },
 
   getScripts() {
-    return ["moment.js"]
+    return ["moment.js"];
   },
 
   getTemplate() {

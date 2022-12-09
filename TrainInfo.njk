@@ -34,6 +34,12 @@
                     <td class="{{trainStatus.class}} status">
                       {{trainStatus.text}}
                     </td>
+
+                    {% if currentTrain.serviceType !== "train" %}
+                      <td class="traintime darkred">
+                        {{currentTrain.serviceType | upper}}
+                      </td>
+                    {% endif %}
                   {% endif %}
                 </tr>
               {% endif %}

@@ -14,11 +14,11 @@
 
 - Clone the module into that folder:
 
-  - `git clone https://github.com/tticehurst/TomTrains.git`
+  - `git clone https://github.com/tticehurst/MMM-TrainTimesRTT.git`
 
 - Change into the new module directory:
 
-  - `cd TomTrains`
+  - `cd MMM-TrainTimesRTT`
 
 - Install the required dependencies for the module:
   - `npm install`

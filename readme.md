@@ -37,7 +37,7 @@
 
 #### Config
 
-![example image](https://i.imgur.com/YjcCy43.png)
+![example image](https://i.ibb.co/n7WrKnd/image.png)
 
 #### Display
 

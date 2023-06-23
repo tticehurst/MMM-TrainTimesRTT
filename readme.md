@@ -2,6 +2,10 @@
 
 # To use this module you must make an account at https://api.rtt.io/ to get the required credentials for the api
 
+#### Current status: **COMPLETE**
+
+<BR />
+
 ## Install
 
 - Change into your modules directory (Example):
@@ -31,4 +35,10 @@
 
 ## Example
 
+#### Config
+
 ![example image](https://i.imgur.com/YjcCy43.png)
+
+#### Display
+
+![example image](https://i.ibb.co/cQNKVgw/image.png)

@@ -1,17 +1,19 @@
-Module.register("TomTrains", {
+/* eslint-disable */
+
+Module.register("MMM-TrainTimesRTT", {
   defaults: {
     origin: "LDS",
     username: undefined,
     password: undefined,
     amount: 5,
-    refreshTime: 5,
+    refreshTime: 5
   },
 
   __getData() {
     this.sendSocketNotification("GetTrains", {
       origin: this.config.origin,
       username: this.config.username,
-      password: this.config.password,
+      password: this.config.password
     });
   },
 
@@ -22,15 +24,18 @@ Module.register("TomTrains", {
       }
     });
 
-    this.nunjucksEnvironment().addFilter("compareTime", (bookedTime, realTime) => {
-      if (realTime > bookedTime) {
-        return { text: "Late", class: "red" };
-      } else if (realTime < bookedTime) {
-        return { text: "Early", class: "lightblue" };
-      } else {
-        return { text: "On Time", class: "green" };
+    this.nunjucksEnvironment().addFilter(
+      "compareTime",
+      (bookedTime, realTime) => {
+        if (realTime > bookedTime) {
+          return { text: "Late", class: "red" };
+        } else if (realTime < bookedTime) {
+          return { text: "Early", class: "lightblue" };
+        } else {
+          return { text: "On Time", class: "green" };
+        }
       }
-    });
+    );
 
     setTimeout(() => {
       setInterval(() => {
@@ -51,7 +56,7 @@ Module.register("TomTrains", {
   getTemplateData() {
     return {
       data: this.payload,
-      config: this.config,
+      config: this.config
     };
   },
 
@@ -65,5 +70,5 @@ Module.register("TomTrains", {
 
   getStyles() {
     return ["trains.css"];
-  },
+  }
 });

@@ -1,6 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
 
-
 .small-gap {
   gap: 7px;
 }
@@ -9,27 +8,31 @@
   color: red !important;
 }
 
+.orange {
+  color: rgb(212, 138, 0) !important;
+}
+
 .darkred {
   color: darkred !important;
 }
-.green{
-  color: rgb(0,255,0) !important;
+.green {
+  color: rgb(0, 255, 0) !important;
 }
 .lightblue {
   color: rgb(70, 169, 202) !important;
 }
 
-td.train-destination{
+td.train-destination {
   text-align: left;
   padding-left: 5px;
   padding-right: 10px;
 }
 
-td.traintime{
-  padding-left: 10px
+td.traintime {
+  padding-left: 10px;
 }
 
-td.status{
+td.status {
   text-align: right;
   padding-left: 10px;
 }
@@ -38,7 +41,7 @@ table {
   border-spacing: 10px;
 }
 
-#trainslisting{
+#trainslisting {
   font-size: 84%;
 }
 

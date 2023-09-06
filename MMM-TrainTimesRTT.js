@@ -28,7 +28,10 @@ Module.register("MMM-TrainTimesRTT", {
       "compareTime",
       (bookedTime, realTime) => {
         if (realTime > bookedTime) {
-          return { text: "Late", class: "red" };
+          return {
+            text: "Late",
+            class: realTime - bookedTime < 10 ? "orange" : "red"
+          };
         } else if (realTime < bookedTime) {
           return { text: "Early", class: "lightblue" };
         } else {

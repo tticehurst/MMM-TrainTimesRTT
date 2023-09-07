@@ -34,8 +34,8 @@ Module.register("MMM-TrainTimesRTT", {
           return hours * 60 + minutes;
         };
 
-        const bookedMinutes = parseTime(bookedTime.toString());
-        const realMinutes = parseTime(realTime.toString());
+        const bookedMinutes = parseTime(bookedTime);
+        const realMinutes = parseTime(realTime);
 
         const timeDifference = realMinutes - bookedMinutes;
 

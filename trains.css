@@ -33,8 +33,11 @@ td.traintime {
 }
 
 td.status {
-  text-align: right;
   padding-left: 10px;
+}
+
+td {
+  text-align: center;
 }
 
 table {

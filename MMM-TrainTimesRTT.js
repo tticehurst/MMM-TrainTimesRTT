@@ -26,7 +26,7 @@ Module.register("MMM-TrainTimesRTT", {
 
     this.nunjucksEnvironment().addFilter(
       "compareTime",
-      (bookedTime, realTime) => {
+      (bookedTime, realTime, type) => {
         const parseTime = (timeStr) => {
           const [hoursStr, minutesStr] = timeStr.match(/\d{2}/g);
           const hours = parseInt(hoursStr, 10);
@@ -34,20 +34,22 @@ Module.register("MMM-TrainTimesRTT", {
           return hours * 60 + minutes;
         };
 
-        const bookedMinutes = parseTime(bookedTime);
-        const realMinutes = parseTime(realTime);
+        if (bookedTime && realTime) {
+          const bookedMinutes = parseTime(bookedTime);
+          const realMinutes = parseTime(realTime);
 
-        const timeDifference = realMinutes - bookedMinutes;
+          const timeDifference = realMinutes - bookedMinutes;
 
-        console.log(timeDifference);
-
-        if (timeDifference > 0) {
-          return {
-            text: "Late",
-            class: timeDifference < 10 ? "orange" : "red"
-          };
-        } else if (timeDifference < 0) {
-          return { text: "Early", class: "lightblue" };
+          if (timeDifference > 0) {
+            return {
+              text: "Late",
+              class: timeDifference < 10 ? "orange" : "red"
+            };
+          } else if (timeDifference < 0) {
+            return { text: "Early", class: "lightblue" };
+          } else {
+            return { text: "On Time", class: "green" };
+          }
         } else {
           return { text: "On Time", class: "green" };
         }

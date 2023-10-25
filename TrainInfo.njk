@@ -16,7 +16,7 @@
               {% if currentTrain.locationDetail %}
                 <tr>
                   <td class="train-destination">{{currentTrain.locationDetail.destination[0].description}}</td>
-                  {% if not currentTrain.locationDetail.cancelReasonCode %}
+                  {% if not currentTrain.locationDetail.cancelReasonCode and currentTrain.serviceType === "train" %}
                     <td class="traintime">{{currentTrain.locationDetail.gbttBookedArrival | trainTime}}</td>
                     <td class="traintime">({{currentTrain.locationDetail.realtimeArrival | trainTime}})</td>
                   {% else %}
@@ -29,7 +29,7 @@
                       <span class="darkred">Cancelled</span>
                     </td>
                   {% else %}
-                    {% set trainStatus = currentTrain.locationDetail.gbttBookedArrival | compareTime(currentTrain.locationDetail.realtimeArrival) %}
+                    {% set trainStatus = currentTrain.locationDetail.gbttBookedArrival | compareTime(currentTrain.locationDetail.realtimeArrival,currentTrian.serviceType) %}
 
                     <td class="{{trainStatus.class}} status">
                       {{trainStatus.text}}

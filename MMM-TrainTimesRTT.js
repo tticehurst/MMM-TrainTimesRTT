@@ -51,7 +51,7 @@ Module.register("MMM-TrainTimesRTT", {
             return { text: "On Time", class: "green" };
           }
         } else {
-          return { text: "On Time", class: "green" };
+          return { text: "BUS", class: "darkred" };
         }
       }
     );
